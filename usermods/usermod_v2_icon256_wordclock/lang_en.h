@@ -129,15 +129,13 @@ void showTimeWords(byte h, byte m, byte s) {
   }
 
   // Singular "minute" for 1 or 59; otherwise "minutes" via 'minute' + 's'
-  if ((m == 1) || (m == 59)) {
-    addWordToFrame(w_en_minute);
-  }
-  if (( (m > 1 && m < 5) || (m > 5 && m < 10) || (m > 10 && m < 15) ||
-        (m > 15 && m < 20) || (m > 20 && m < 25) || (m > 25 && m < 30) ||
-        (m > 30 && m < 35) || (m > 35 && m < 40) || (m > 40 && m < 45) ||
-        (m > 45 && m < 50) || (m > 50 && m < 55) || (m > 55 && m < 59) )) {
-    addWordToFrame(w_en_minute);
-    addWordToFrame(w_en_s);
+  if (m > 0) {
+    if (m == 1 || m == 59) {
+      addWordToFrame(w_en_minute);
+    } else {
+      addWordToFrame(w_en_minute);
+      addWordToFrame(w_en_s);
+    }
   }
 
   // Day-part
