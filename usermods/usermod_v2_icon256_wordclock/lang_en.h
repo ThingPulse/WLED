@@ -129,8 +129,8 @@ void showTimeWords(byte h, byte m, byte s) {
   }
 
   // Singular "minute" for 1 or 59; otherwise "minutes" via 'minute' + 's'
-  // BUT skip "minute(s)" entirely for quarter (m==15 or m==45)
-  if (m > 0 && m != 15 && m != 45) {
+  // BUT skip "minute(s)" entirely for quarter (m==15 or m==45) and half (m==30)
+  if (m > 0 && m != 15 && m != 30 && m != 45) {
     if (m == 1 || m == 59) {
       addWordToFrame(w_en_minute);
     } else {
