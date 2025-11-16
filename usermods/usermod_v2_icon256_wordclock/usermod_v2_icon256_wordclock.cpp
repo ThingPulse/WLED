@@ -78,21 +78,16 @@ uint16_t mode_icon256_word_clock()
     // Update local time from NTP
     updateLocalTime();
     
-    // Check if time is valid (not just initialized to 0)
-    // toki.second() returns 0 before NTP sync completes
-    if (toki.second() > 1000000) { // Time is valid (after year 1970 + ~11 days)
-        addWordToFrame(w_en_the);
-        addWordToFrame(w_en_time_);
-        addWordToFrame(w_en_is);
+    addWordToFrame(w_en_the);
+    addWordToFrame(w_en_time_);
+    addWordToFrame(w_en_is);
 
-        byte h = hour(localTime);
-        byte m = minute(localTime);
-        byte s = second(localTime);
+    byte h = hour(localTime);
+    byte m = minute(localTime);
+    byte s = second(localTime);
 
-        showTimeWords(h, m, s);
-        showSeconds(s);
-    }
-    // If time is not valid, just clear the frame (blank display)
+    showTimeWords(h, m, s);
+    showSeconds(s);
 
     uint8_t palette_index = 0;
     // Render frame to the strip
