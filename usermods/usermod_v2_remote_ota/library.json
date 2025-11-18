@@ -1,0 +1,4 @@
+{
+  "name": "usermod_v2_remote_ota",
+  "build": { "libArchive": false }
+}
