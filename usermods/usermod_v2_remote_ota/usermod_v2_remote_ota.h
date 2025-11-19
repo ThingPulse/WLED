@@ -154,6 +154,7 @@ public:
     } else {
       infoArr.add(F("Up to date"));
       infoArr.add(currentVersion);
+      infoArr.add(F(" 🔍 Check Now"));
     }
   }
 
