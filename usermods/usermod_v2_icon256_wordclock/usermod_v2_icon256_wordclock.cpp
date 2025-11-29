@@ -133,6 +133,24 @@ public:
         strip.deserializeMap();
         strip.makeAutoSegments(true);
 
+        // Configure buttons on pins 11, 12, 13 with pullup
+        btnPin[0] = 11;     // Button 1: Next palette
+        btnPin[1] = 12;     // Button 2: Previous palette
+        btnPin[2] = 13;     // Button 3: Toggle display
+        
+        buttonType[0] = BTN_TYPE_PUSH;
+        buttonType[1] = BTN_TYPE_PUSH;
+        buttonType[2] = BTN_TYPE_PUSH;
+        
+        // Set up macros for buttons (presets 251-253)
+        // These presets should be created via web UI or API with:
+        // Preset 251: {"seg":{"pal":"r+"}} - next palette
+        // Preset 252: {"seg":{"pal":"r-"}} - previous palette  
+        // Preset 253: {"on":"t"} - toggle on/off
+        macroButton[0] = 251;  // Button 1 -> Preset 251 (next palette)
+        macroButton[1] = 252;  // Button 2 -> Preset 252 (previous palette)
+        macroButton[2] = 253;  // Button 3 -> Preset 253 (toggle display)
+
         // Add the effect to the list
         strip.addEffect(FX_MODE_ICON256_WORD_CLOCK, mode_icon256_word_clock, _data_FX_MODE_WORD_CLOCK);
     }
